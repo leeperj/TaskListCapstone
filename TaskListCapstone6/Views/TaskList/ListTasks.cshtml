@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "ListTasks";
+}
+
+<h1>List Tasks</h1>
+
+@model IEnumerable<TaskList>
+
+<table class="table">
+    <tr>     
+        <th>Description</th>
+        <th>Due Date</th>
+        <th>Completed</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.Description</td>
+    <td>@item.DueDate</td>
+    <td>@item.Completed</td>
+    <td><a href="/TaskList/DeleteTask?Id=@item.TaskId"><input type="submit" value="Delete Task" /> </a></td>
+    <td><a href="/TaskList/UpdateTask?Id=@item.TaskId"><input type="submit" value="Mark Complete" /> </a></td>
+</tr>
+
+
+    }
+</table>
